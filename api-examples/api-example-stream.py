@@ -82,5 +82,6 @@ async def print_response_stream(prompt):
 
 
 if __name__ == '__main__':
-    prompt = "In order to make homemade bread, follow these steps:\n1)"
+    # prompt = "In order to make homemade bread, follow these steps:\n1)"
+    prompt = "媽媽，我被壞人抓走了，快來救我!:\n"
     asyncio.run(print_response_stream(prompt))

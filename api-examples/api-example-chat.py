@@ -19,8 +19,10 @@ def run(user_input, history):
         'max_tokens_second': 0,
         'history': history,
         'mode': 'instruct',  # Valid options: 'chat', 'chat-instruct', 'instruct'
-        'character': 'Example',
-        'instruction_template': 'Vicuna-v1.1',  # Will get autodetected if unset
+        # 'character': 'Example',
+        # 'instruction_template': 'Vicuna-v1.1',  # Will get autodetected if unset
+        'character': 'ScamScam',
+        'instruction_template': 'ScamScam',  # Will get autodetected if unset
         'your_name': 'You',
         # 'name1': 'name of user', # Optional
         # 'name2': 'name of character', # Optional
@@ -32,7 +34,8 @@ def run(user_input, history):
         # 'turn_template': 'turn_template', # Optional
         'regenerate': False,
         '_continue': False,
-        'chat_instruct_command': 'Continue the chat dialogue below. Write a single reply for the character "<|character|>".\n\n<|prompt|>',
+        # 'chat_instruct_command': 'Continue the chat dialogue below. Write a single reply for the character "<|character|>".\n\n<|prompt|>',
+        'chat_instruct_command': '在下面接續交談，只要為這個角色 "<|character|>" 撰寫一個回覆:\n\n<|prompt|>',
 
         # Generation params. If 'preset' is set to different than 'None', the values
         # in presets/preset-name.yaml are used instead of the individual numbers.
@@ -80,7 +83,8 @@ def run(user_input, history):
 
 
 if __name__ == '__main__':
-    user_input = "Please give me a step-by-step guide on how to plant a tree in my backyard."
+    # user_input = "Please give me a step-by-step guide on how to plant a tree in my backyard."
+    user_input = "媽媽，我被壞人抓走了，快來救我!"
 
     # Basic example
     history = {'internal': [], 'visible': []}
