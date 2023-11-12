@@ -83,5 +83,6 @@ async def print_response_stream(prompt):
 
 if __name__ == '__main__':
     # prompt = "In order to make homemade bread, follow these steps:\n1)"
-    prompt = "媽媽，我被壞人抓走了，快來救我!:\n"
+    # prompt = "媽媽，我被壞人抓走了，快來救我!:\n"
+    prompt = "綁架詐欺犯打電話給我，說「你的孩子被我綁架了，拿一億元來贖，絕對不可報警」，請問我該如何回答:\n\n"
     asyncio.run(print_response_stream(prompt))
