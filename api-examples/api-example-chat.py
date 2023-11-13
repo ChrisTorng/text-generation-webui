@@ -12,6 +12,7 @@ URI = f'http://{HOST}/api/v1/chat'
 
 
 def run(user_input, history):
+    print(user_input)
     request = {
         'user_input': user_input,
         'max_new_tokens': 250,

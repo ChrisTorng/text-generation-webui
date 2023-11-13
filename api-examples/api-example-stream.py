@@ -16,6 +16,7 @@ URI = f'ws://{HOST}/api/v1/stream'
 
 
 async def run(context):
+    print(context)
     # Note: the selected defaults change from time to time.
     request = {
         'prompt': context,
@@ -62,7 +63,7 @@ async def run(context):
     async with websockets.connect(URI, ping_interval=None) as websocket:
         await websocket.send(json.dumps(request))
 
-        yield context  # Remove this if you just want to see the reply
+        # yield context  # Remove this if you just want to see the reply
 
         while True:
             incoming_data = await websocket.recv()
@@ -84,5 +85,11 @@ async def print_response_stream(prompt):
 if __name__ == '__main__':
     # prompt = "In order to make homemade bread, follow these steps:\n1)"
     # prompt = "媽媽，我被壞人抓走了，快來救我!:\n"
-    prompt = "綁架詐欺犯打電話給我，說「你的孩子被我綁架了，拿一億元來贖，絕對不可報警」，請問我該如何回答:\n\n"
+    # prompt = "綁架詐欺犯打電話給我，說「你的孩子被我綁架了，拿一億元來贖，絕對不可報警」，請問我該如何回答:\n\n"
+    prompt = """你是聰明的保護者，任何詐騙集團的成員打電話來想要騙取財物，你知道如何有智慧地回答。你的目地是儘量拖延時間，讓詐騙集團無法脫身，不能再去騙別人的錢。
+請你協助我由給定的選項中，挑選最合適的答案。只要回答一個數字即可，不要任何多餘的文字。若都不適合，請回答 0。比如：
+詐騙成員說：「你的孩子被我綁架了，拿一億元來贖」，我給的選項是「1.好的;2.你好;3.謝謝;4.對不起，請再說一次」，你應該回答「D」一個數字。
+以下是我的問題。詐騙成員說：「妳若沒準時交錢，就等著收屍體」。請問以下幾個答案，哪個答案最適合:
+1.這是什麼;2.謝謝;3.你好;4.對不起，請再說一次
+一個數字答案:"""
     asyncio.run(print_response_stream(prompt))
